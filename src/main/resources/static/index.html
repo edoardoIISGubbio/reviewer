@@ -30,6 +30,7 @@
                     <input type="file" id="files" name="files"
                            accept=".java" multiple required>
                 </div>
+                <button type="button" id="clearBtn" class="clear-btn" hidden>&#x2715; Rimuovi tutti</button>
             </div>
 
             <button type="submit" id="btn">Carica e analizza</button>
@@ -42,9 +43,10 @@
         const fileInput = document.getElementById('files');
         const fileDrop  = document.getElementById('fileDrop');
         const fileList  = document.getElementById('fileList');
+        const clearBtn  = document.getElementById('clearBtn');
 
         // Accumulo dei file selezionati nelle varie sessioni di scelta
-        const accumulated = new DataTransfer();
+        let accumulated = new DataTransfer();
 
         function refreshFileInput() {
             fileInput.files = accumulated.files;
@@ -54,7 +56,13 @@
                 li.textContent = file.name;
                 fileList.appendChild(li);
             }
+            clearBtn.hidden = accumulated.files.length === 0;
         }
+
+        clearBtn.addEventListener('click', () => {
+            accumulated = new DataTransfer();
+            refreshFileInput();
+        });
 
         fileInput.addEventListener('change', () => {
             for (const file of fileInput.files) {
@@ -70,6 +78,7 @@
         fileDrop.addEventListener('drop',      () => fileDrop.classList.remove('dragover'));
 
         document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+            // Preveniamo il comportamento di default per gestire l'upload via JavaScript
             e.preventDefault();
 
             const btn    = document.getElementById('btn');
