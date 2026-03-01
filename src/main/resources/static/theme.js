@@ -9,7 +9,7 @@
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem(KEY, theme);
         var chk = document.getElementById('themeToggle');
-        if (chk) chk.checked = (theme === 'fluo');
+        if (chk) chk.checked = (theme === 'light');
     }
 
     function injectSwitch() {
@@ -21,13 +21,13 @@
                 '<input type="checkbox" id="themeToggle">' +
                 '<span class="theme-slider"></span>' +
             '</label>' +
-            '<span class="theme-label">Fluo</span>';
+            '<span class="theme-label">Chiaro</span>';
         document.body.prepend(wrap);
 
         var chk = document.getElementById('themeToggle');
-        chk.checked = (currentTheme() === 'fluo');
+        chk.checked = (currentTheme() === 'light');
         chk.addEventListener('change', function () {
-            applyTheme(this.checked ? 'fluo' : 'dark');
+            applyTheme(this.checked ? 'light' : 'dark');
         });
     }
 

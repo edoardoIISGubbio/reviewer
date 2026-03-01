@@ -34,26 +34,26 @@
     --err:     rgb(var(--err-rgb));
 }
 
-[data-theme="fluo"] {
-    --bg:          #050805;
-    --bg-card:     #0b130a;
-    --bg-item:     #050805;
-    --bg-item-alt: #0f1a0e;
-    --bg-hover:    #0d1a0c;
-    --border:      #1b3a14;
-    --border-dim:  #122710;
-    --text:        #c8ffbe;
-    --text-head:   #e8ffe2;
-    --text-muted:  #5ab84a;
-    --text-dim:    #1b3a14;
-    --text-desc:   #a8e89e;
-    --state-gray:  #7aab6e;
-    --btn-text:    #050805;
-    --shadow:      rgba(0, 0, 0, 0.7);
-    --accent-rgb:  57,  255, 20;    /* verde neon */
-    --accent2-rgb: 255, 200, 0;     /* giallo/arancio neon */
-    --ok-rgb:      57,  255, 20;    /* verde neon */
-    --err-rgb:     255, 0,   180;   /* rosa/magenta neon */
+[data-theme="light"] {
+    --bg:          #f5f7fa;
+    --bg-card:     #ffffff;
+    --bg-item:     #f9fafb;
+    --bg-item-alt: #f1f3f6;
+    --bg-hover:    #edf0f5;
+    --border:      #d1d5db;
+    --border-dim:  #e5e7eb;
+    --text:        #1f2937;
+    --text-head:   #111827;
+    --text-muted:  #6b7280;
+    --text-dim:    #d1d5db;
+    --text-desc:   #374151;
+    --state-gray:  #9ca3af;
+    --btn-text:    #fff;
+    --shadow:      rgba(0, 0, 0, 0.08);
+    --accent-rgb:  59,  130, 246;   /* blu */
+    --accent2-rgb: 139, 92,  246;   /* viola */
+    --ok-rgb:      16,  185, 129;   /* verde */
+    --err-rgb:     239, 68,  68;    /* rosso */
     --accent:  rgb(var(--accent-rgb));
     --accent2: rgb(var(--accent2-rgb));
     --ok:      rgb(var(--ok-rgb));
@@ -72,12 +72,6 @@
     50%       { box-shadow: 0 8px 40px var(--shadow), 0 0 18px 2px rgba(var(--accent-rgb), 0.22); }
 }
 
-@keyframes borderGlowFluo {
-    0%   { box-shadow: 0 8px 40px var(--shadow), 0 0 0 1px var(--border); }
-    35%  { box-shadow: 0 8px 40px var(--shadow), 0 0 24px 4px rgba(57, 255, 20, 0.35); }
-    70%  { box-shadow: 0 8px 40px var(--shadow), 0 0 24px 4px rgba(200, 0, 255, 0.35); }
-    100% { box-shadow: 0 8px 40px var(--shadow), 0 0 0 1px var(--border); }
-}
 
 @keyframes pulse {
     0%, 100% { opacity: 1; }
@@ -479,64 +473,11 @@ button[type="submit"]:disabled {
     font-size: 0.9rem;
 }
 
-/* ── Overrides tema fluo ────────────────────────────────────────────────── */
+/* ── Overrides tema light ───────────────────────────────────────────────── */
 
-[data-theme="fluo"] .card {
-    animation: fadeInUp 0.35s ease both, borderGlowFluo 4s ease-in-out 0.4s infinite;
-}
-
-[data-theme="fluo"] .card-icon {
-    /* doppio glow: verde neon + viola, come una lampada a fluorescenza */
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.9), 0 0 28px rgba(200, 0, 255, 0.6);
-}
-
-/* Area upload: toni arancione */
-[data-theme="fluo"] .file-drop {
-    border-color: rgba(255, 140, 0, 0.45);
-}
-[data-theme="fluo"] .file-drop:hover,
-[data-theme="fluo"] .file-drop.dragover {
-    border-color: rgb(255, 140, 0);
-    background: rgba(255, 140, 0, 0.05);
-}
-[data-theme="fluo"] .drop-icon {
-    color: rgba(255, 140, 0, 0.5);
-}
-[data-theme="fluo"] .file-drop:hover .drop-icon {
-    color: rgb(255, 140, 0);
-}
-[data-theme="fluo"] .file-drop p {
-    color: rgba(255, 140, 0, 0.7);
-}
-[data-theme="fluo"] .file-drop > span {
-    color: rgba(255, 140, 0, 0.4);
-}
-[data-theme="fluo"] .file-list li {
-    color: rgb(255, 140, 0);
-    background: rgba(255, 140, 0, 0.08);
-    border-color: rgba(255, 140, 0, 0.25);
-}
-[data-theme="fluo"] .clear-btn {
-    color: rgb(255, 140, 0);
-    border-color: rgba(255, 140, 0, 0.35);
-}
-[data-theme="fluo"] .clear-btn:hover {
-    background: rgba(255, 140, 0, 0.1);
-    border-color: rgba(255, 140, 0, 0.6);
-}
-
-/* Righe report: toni fucsia */
-[data-theme="fluo"] .op-item {
-    background: rgba(255, 0, 180, 0.05);
-}
-[data-theme="fluo"] .op-item:nth-child(even) {
-    background: rgba(255, 0, 180, 0.10);
-}
-[data-theme="fluo"] .op-item:hover {
-    background: rgba(255, 0, 180, 0.17);
-}
-[data-theme="fluo"] .op-desc {
-    color: #ff66d9;
+[data-theme="light"] .card-icon {
+    /* glow più leggero su sfondo chiaro */
+    text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.35);
 }
 
 /* ── Theme switch ───────────────────────────────────────────────────────── */
