@@ -8,7 +8,7 @@
 		<version>4.0.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>it.edu.iisgubbio.reviewer</groupId>
+	<groupId>it.edu.iisgubbio</groupId>
 	<artifactId>reviewer</artifactId>
 	<version>1.0</version>
 	<name>reviewer</name>

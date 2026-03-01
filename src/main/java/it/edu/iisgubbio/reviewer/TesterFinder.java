@@ -1,4 +1,4 @@
-package it.edu.iisgubbio.reviewer.reviewer;
+package it.edu.iisgubbio.reviewer;
 
 import java.io.IOException;
 import java.util.HashMap;

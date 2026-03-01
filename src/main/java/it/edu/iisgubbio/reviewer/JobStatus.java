@@ -1,6 +1,6 @@
-package it.edu.iisgubbio.reviewer.reviewer;
+package it.edu.iisgubbio.reviewer;
 
-import it.edu.iisgubbio.reviewer.reviewer.dto.JobStatusOperation;
+import it.edu.iisgubbio.reviewer.dto.JobStatusOperation;
 
 import java.time.Instant;
 import java.util.ArrayList;

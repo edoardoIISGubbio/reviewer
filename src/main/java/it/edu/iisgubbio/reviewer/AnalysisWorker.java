@@ -1,6 +1,6 @@
-package it.edu.iisgubbio.reviewer.reviewer;
+package it.edu.iisgubbio.reviewer;
 
-import it.edu.iisgubbio.reviewer.reviewer.dto.JobStatusOperation;
+import it.edu.iisgubbio.reviewer.dto.JobStatusOperation;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -76,8 +76,19 @@ public class AnalysisWorker {
                 output.lines()
                         .filter(line -> !line.isBlank())
                         .forEach(line -> {
-                            boolean ok = !line.contains("ERRORE") && !line.contains("errori");
-                            jobBroker.addOperation(jobId, new JobStatusOperation(line, ok));
+                            boolean ok;
+                            String text;
+                            if (line.endsWith("ERRORE")) {
+                                ok = false;
+                                text = line.substring(0, line.length() - "ERRORE".length()).stripTrailing();
+                            } else if (line.endsWith("OK")) {
+                                ok = true;
+                                text = line.substring(0, line.length() - "OK".length()).stripTrailing();
+                            } else {
+                                ok = !line.contains("ERROR") && !line.contains("errori");
+                                text = line;
+                            }
+                            jobBroker.addOperation(jobId, new JobStatusOperation(text, ok));
                         });
 
             }

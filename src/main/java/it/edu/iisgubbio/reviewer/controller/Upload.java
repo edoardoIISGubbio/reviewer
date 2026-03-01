@@ -1,10 +1,10 @@
-package it.edu.iisgubbio.reviewer.reviewer.controller;
+package it.edu.iisgubbio.reviewer.controller;
 
-import it.edu.iisgubbio.reviewer.reviewer.AnalysisWorker;
-import it.edu.iisgubbio.reviewer.reviewer.JobBroker;
-import it.edu.iisgubbio.reviewer.reviewer.Tester;
-import it.edu.iisgubbio.reviewer.reviewer.TesterFinder;
-import it.edu.iisgubbio.reviewer.reviewer.dto.UploadResponse;
+import it.edu.iisgubbio.reviewer.AnalysisWorker;
+import it.edu.iisgubbio.reviewer.JobBroker;
+import it.edu.iisgubbio.reviewer.Tester;
+import it.edu.iisgubbio.reviewer.TesterFinder;
+import it.edu.iisgubbio.reviewer.dto.UploadResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

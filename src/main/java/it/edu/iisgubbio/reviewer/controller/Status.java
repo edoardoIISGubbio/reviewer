@@ -1,7 +1,7 @@
-package it.edu.iisgubbio.reviewer.reviewer.controller;
+package it.edu.iisgubbio.reviewer.controller;
 
-import it.edu.iisgubbio.reviewer.reviewer.JobBroker;
-import it.edu.iisgubbio.reviewer.reviewer.JobStatus;
+import it.edu.iisgubbio.reviewer.JobBroker;
+import it.edu.iisgubbio.reviewer.JobStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
