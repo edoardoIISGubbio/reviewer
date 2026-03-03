@@ -1,6 +1,7 @@
-package it.edu.iisgubbio.reviewer;
+package it.edu.iisgubbio.reviewer.service;
 
-import it.edu.iisgubbio.reviewer.dto.JobStatusOperation;
+import it.edu.iisgubbio.reviewer.model.JobStatus;
+import it.edu.iisgubbio.reviewer.model.JobStatusOperation;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -61,9 +62,9 @@ public class AnalysisWorker {
         System.setOut(new PrintStream(TL_OUT, true, StandardCharsets.UTF_8));
     }
 
-    private final JobBroker jobBroker;
+    private final JobRegistry jobBroker;
 
-    public AnalysisWorker(JobBroker jobBroker) {
+    public AnalysisWorker(JobRegistry jobBroker) {
         this.jobBroker = jobBroker;
     }
 

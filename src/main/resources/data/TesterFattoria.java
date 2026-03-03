@@ -7,7 +7,7 @@ public class TesterFattoria {
 
 	public static void main(String[] args) {
 
-	    ClassTestManager m = new ClassTestManager("it.edu.iisgubbio.oggetti.fattoria", true);
+	    ClassTestManager m = new ClassTestManager("it.edu.iisgubbio.oggetti.fattoria", false);
 
         // --- Prodotto ---
         m.classe = "Prodotto";

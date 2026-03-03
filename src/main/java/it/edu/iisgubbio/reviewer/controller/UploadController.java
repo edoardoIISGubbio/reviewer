@@ -1,10 +1,10 @@
 package it.edu.iisgubbio.reviewer.controller;
 
-import it.edu.iisgubbio.reviewer.AnalysisWorker;
-import it.edu.iisgubbio.reviewer.JobBroker;
-import it.edu.iisgubbio.reviewer.Tester;
-import it.edu.iisgubbio.reviewer.TesterFinder;
-import it.edu.iisgubbio.reviewer.dto.UploadResponse;
+import it.edu.iisgubbio.reviewer.model.JobStatusOperation;
+import it.edu.iisgubbio.reviewer.model.Tester;
+import it.edu.iisgubbio.reviewer.service.AnalysisWorker;
+import it.edu.iisgubbio.reviewer.service.JobRegistry;
+import it.edu.iisgubbio.reviewer.service.TesterRegistry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +20,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
-public class Upload {
+public class UploadController {
 
     private final AnalysisWorker analysisWorker;
-    private final JobBroker jobBroker;
-    private final TesterFinder testerFinder;
+    private final JobRegistry jobBroker;
+    private final TesterRegistry testerFinder;
 
-    public Upload(AnalysisWorker analysisWorker, JobBroker jobBroker, TesterFinder testerFinder) {
+    public UploadController(AnalysisWorker analysisWorker, JobRegistry jobBroker, TesterRegistry testerFinder) {
         this.analysisWorker = analysisWorker;
         this.jobBroker = jobBroker;
         this.testerFinder = testerFinder;
@@ -71,7 +71,9 @@ public class Upload {
                 // Estrae il nome del pacchetto dal primo file che ne abbia uno
                 if (packageDir.isEmpty()) {
                     Matcher m = PACKAGE_PATTERN.matcher(new String(bytes, StandardCharsets.UTF_8));
-                    if (m.find()) packageDir = m.group(1);
+                    if (m.find()){
+                        packageDir = m.group(1);
+                    }
                 }
                 Path fileDir = resolvePackageDir(bytes, targetDir);
                 Files.createDirectories(fileDir);
@@ -87,7 +89,7 @@ public class Upload {
         Tester tester = testerFinder.getTesterFor(packageDir);
         if(tester!=null){
             Path testerDir = resolvePackageDir(tester.bytes(), targetDir);
-            System.out.println(">>>>>>> "+testerDir);
+
             try {
                 Files.createDirectories(testerDir);
                 Files.write(testerDir.resolve(tester.nomeClasse()+".java"), tester.bytes());
@@ -103,6 +105,7 @@ public class Upload {
         }
 
         jobBroker.register(effectiveId);
+        jobBroker.addOperation(effectiveId, new JobStatusOperation("Test per "+packageDir, true));
         analysisWorker.analyze(targetDir, effectiveId, packageDir+"."+tester.nomeClasse());
 
         return ResponseEntity.ok(UploadResponse.ok(saved + " file salvati. Analisi avviata.", effectiveId));

@@ -1,7 +1,7 @@
 package it.edu.iisgubbio.reviewer.controller;
 
-import it.edu.iisgubbio.reviewer.JobBroker;
-import it.edu.iisgubbio.reviewer.JobStatus;
+import it.edu.iisgubbio.reviewer.model.JobStatus;
+import it.edu.iisgubbio.reviewer.service.JobRegistry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class Status {
+public class StatusController {
 
-    private final JobBroker jobBroker;
+    private final JobRegistry jobBroker;
 
-    public Status(JobBroker jobBroker) {
+    public StatusController(JobRegistry jobBroker) {
         this.jobBroker = jobBroker;
     }
 

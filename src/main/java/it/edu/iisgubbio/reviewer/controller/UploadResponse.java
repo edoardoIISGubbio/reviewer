@@ -1,4 +1,4 @@
-package it.edu.iisgubbio.reviewer.dto;
+package it.edu.iisgubbio.reviewer.controller;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

@@ -1,6 +1,7 @@
-package it.edu.iisgubbio.reviewer;
+package it.edu.iisgubbio.reviewer.service;
 
-import it.edu.iisgubbio.reviewer.dto.JobStatusOperation;
+import it.edu.iisgubbio.reviewer.model.JobStatus;
+import it.edu.iisgubbio.reviewer.model.JobStatusOperation;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Files;
@@ -16,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Memorizza lo stato dei job e genera nuovi id
  ***************************************************************************/
 @Service // serve a Spring per poter fare injection
-public class JobBroker {
+public class JobRegistry {
 
     private final ConcurrentHashMap<String, JobStatus> jobs = new ConcurrentHashMap<>();
     // Tiene traccia dell'ordine di inserimento dei job

@@ -1,6 +1,4 @@
-package it.edu.iisgubbio.reviewer;
-
-import it.edu.iisgubbio.reviewer.dto.JobStatusOperation;
+package it.edu.iisgubbio.reviewer.model;
 
 import java.time.Instant;
 import java.util.ArrayList;

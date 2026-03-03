@@ -50,8 +50,8 @@
     --state-gray:  #9ca3af;
     --btn-text:    #fff;
     --shadow:      rgba(0, 0, 0, 0.08);
-    --accent-rgb:  59,  130, 246;   /* blu */
-    --accent2-rgb: 139, 92,  246;   /* viola */
+    --accent-rgb:  249, 115,  22;   /* arancione */
+    --accent2-rgb:  16, 185, 129;   /* verde */
     --ok-rgb:      16,  185, 129;   /* verde */
     --err-rgb:     239, 68,  68;    /* rosso */
     --accent:  rgb(var(--accent-rgb));
@@ -95,7 +95,7 @@ body {
 }
 body.status-page {
     align-items: flex-start;
-    margin: 2rem;
+    margin: 4rem 2rem 2rem;
 }
 
 .card {
