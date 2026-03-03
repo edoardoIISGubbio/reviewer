@@ -26,14 +26,12 @@
     --inline-code-border: rgba(255,255,255,0.14);
     /* Colori accent come triplette RGB per usarli con rgba() */
     --accent-rgb:  108, 138, 255;   /* indigo */
-    --accent2-rgb: 160, 102, 255;   /* viola */
     --ok-rgb:      52,  211, 153;   /* verde */
     --err-rgb:     248, 113, 113;   /* rosso */
     /* Helper per uso diretto */
-    --accent:  rgb(var(--accent-rgb));
-    --accent2: rgb(var(--accent2-rgb));
-    --ok:      rgb(var(--ok-rgb));
-    --err:     rgb(var(--err-rgb));
+    --accent: rgb(var(--accent-rgb));
+    --ok:     rgb(var(--ok-rgb));
+    --err:    rgb(var(--err-rgb));
 }
 
 [data-theme="light"] {
@@ -49,19 +47,12 @@
     --text-muted:  #6b7280;
     --text-dim:    #d1d5db;
     --text-desc:   #374151;
-    --state-gray:  #9ca3af;
-    --btn-text:    #fff;
     --shadow:      rgba(0, 0, 0, 0.08);
     --inline-code-bg:     rgba(0,0,0,0.05);
     --inline-code-border: rgba(0,0,0,0.11);
     --accent-rgb:  249, 115,  22;   /* arancione */
-    --accent2-rgb:  9, 232, 95;   /* verde */
     --ok-rgb:      16,  185, 129;   /* verde */
     --err-rgb:     239, 68,  68;    /* rosso */
-    --accent:  rgb(var(--accent-rgb));
-    --accent2: rgb(var(--accent2-rgb));
-    --ok:      rgb(var(--ok-rgb));
-    --err:     rgb(var(--err-rgb));
 }
 
 /* ── Animazioni ─────────────────────────────────────────────────────────── */
@@ -80,10 +71,6 @@
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0.55; }
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
 }
 
 body {
@@ -265,7 +252,7 @@ button[type="submit"] {
     width: 100%;
     padding: 0.78rem;
     margin-top: 0.4rem;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    background: var(--accent);
     border: none;
     border-radius: 10px;
     color: var(--btn-text);
