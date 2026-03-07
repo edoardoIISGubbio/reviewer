@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"it.edu.iisgubbio.oggetti.sport","l":"Atleta"},{"p":"it.edu.iisgubbio.oggetti.sport","l":"Maratoneta"},{"p":"it.edu.iisgubbio.oggetti.sport","l":"Nuotatore"}];updateSearchResults();
