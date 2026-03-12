@@ -52,8 +52,8 @@ public class TesterMobilita {
         // Vespa: nome="Vespa", costo=3000 (int), rumorosita=65.0, carburante="benzina"
         m.classe = "AMotore";
         try {
-            Object amo = m.crea("Vespa", 3000, 65.0, "benzina");
-            m.stampa("costruttore(\"Vespa\",3000,65.0,\"benzina\")", true);
+            Object amo = m.crea("Vespa", 3000.0, 65.0, "benzina");
+            m.stampa("costruttore(\"Vespa\",3000.0,65.0,\"benzina\")", true);
             m.stampa("toString()", "Mezzo motorizzato: Vespa (3000.0€) che emette 65.0dB di rumore, consuma benzina", amo.toString(), true);
             // possibileCentriAbitati: 65 <= 68 → true
             m.stampa("possibileCentriAbitati() [65dB]", true, m.chiama(amo, "possibileCentriAbitati"));
