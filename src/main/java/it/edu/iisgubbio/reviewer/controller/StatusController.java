@@ -3,6 +3,7 @@ package it.edu.iisgubbio.reviewer.controller;
 import it.edu.iisgubbio.reviewer.model.JobStatus;
 import it.edu.iisgubbio.reviewer.service.JobRegistry;
 import it.edu.iisgubbio.reviewer.service.TesterRegistry;
+import it.edu.iisgubbio.reviewer.service.VersionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +18,17 @@ public class StatusController {
 
     private final JobRegistry jobBroker;
     private final TesterRegistry testerRegistry;
+    private final VersionService versionService;
 
-    public StatusController(JobRegistry jobBroker, TesterRegistry testerRegistry) {
+    public StatusController(JobRegistry jobBroker, TesterRegistry testerRegistry, VersionService versionService) {
         this.jobBroker = jobBroker;
         this.testerRegistry = testerRegistry;
+        this.versionService = versionService;
+    }
+
+    @GetMapping("/version")
+    public Map<String, String> version() {
+        return Map.of("version", versionService.getVersion());
     }
 
     @GetMapping("/status/{jobId}")

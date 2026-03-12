@@ -60,8 +60,9 @@ public class AnalysisWorker {
 
                 List<String> lines;
                 try {
-                    //noinspection unchecked
-                    lines = (List<String>) doTestMethod.invoke(testerInstance, false);
+                    @SuppressWarnings("unchecked")
+                    List<String> invokeResult = (List<String>) doTestMethod.invoke(testerInstance, false);
+                    lines = invokeResult;
                 } catch (InvocationTargetException e) {
                     log.warning("doTest ha lanciato un'eccezione: " + e.getCause());
                     lines = List.of();

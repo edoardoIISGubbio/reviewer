@@ -79,6 +79,10 @@
         fileDrop.addEventListener('dragleave', () => fileDrop.classList.remove('dragover'));
         fileDrop.addEventListener('drop',      () => fileDrop.classList.remove('dragover'));
 
+        fetch('/version')
+            .then(r => r.json())
+            .then(d => { document.getElementById('versione').textContent = 'v' + d.version; });
+
         document.getElementById('uploadForm').addEventListener('submit', async function (e) {
             // Preveniamo il comportamento di default per gestire l'upload via JavaScript
             e.preventDefault();
